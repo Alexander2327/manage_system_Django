@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" style="font-family: 'Francois One'; margin-left: 75px; font-size: 30px; font-weight: bold; color: #eb5959"
+           href="{% url 'home' %}">652 Group</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" style="margin-left: 100px;"
+                       href="{% url 'home' %}">Главная</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" aria-current="page" style="" href="{% url 'main' %}"
+                       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Таблицы</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'main' %}">Основная</a></li>
+                        <li><a class="dropdown-item" href="{% url 'osa' %}">OSA</a></li>
+                        <li><a class="dropdown-item" href="{% url 'doc' %}">Документация</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tech' %}">Характеристики</a></li>
+                    </ul>
+                </li>
+                {% if request.user.is_staff %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" aria-current="page" style="" href="#"
+                       id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">Сотрудникам</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'req_list_all' %}">Просмотреть заявки</a></li>
+                        <li><a class="dropdown-item" href="{% url 'users' %}">Список пользователей</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" aria-current="page" style="" href="#"
+                       id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">Заказчикам</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'add_req' %}">Оставить заявку</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mail' %}">Задать вопрос</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+
+                    <span style="color: #fff; margin-right: 10px;">
+                        {% if request.user.is_authenticated %}
+                        Добро пожаловать, {{ user.username }}!
+                        {% endif %}
+                    </span>
+                <a href="{% url 'logout' %}">
+                    <span class="navbar-text" style="font-size: bold; color: #eb5959; margin-left: 10px; font-family: 'Rubik', sans-serif;">Выход <i
+                            class="fa fa-regular fa-door-open"></i>
+                    </span>
+                </a>
+
+
+            </form>
+        </div>
+    </div>
+</nav>

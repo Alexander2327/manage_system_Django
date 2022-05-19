@@ -1,0 +1,54 @@
+{% extends 'mainapp/table.html' %}
+{% block title %}Сопроводительная документация{% endblock title %}
+{% block back %}
+<a href="{% url 'main' %}">
+    <button class="btn btn-outline-danger" type="submit" style="margin-left: 10px;"><i
+            class="fa fa-regular fa-arrow-left"></i> Главная таблица
+    </button>
+</a>
+{% endblock back %}
+{% block add %}
+    <a href="{% url 'add_doc' %}">
+    <button type="button" class="btn btn-danger btn-sm" style="margin-left: 30px;width: 230px;margin-top: 5px;""><i
+                class="fa fa-solid fa-plus"></i> Добавить запись
+        </button>
+        </a>
+{% endblock add%}
+{% block content %}
+<table class="table table-sm caption-top">
+    <caption>Документация к изделиям</caption>
+    <thead class="table-danger" align="center">
+    <tr>
+        <th scope="col">Серийный номер</th>
+        <th scope="col">Лазер</th>
+        <th scope="col">Технологический паспорт</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page_obj %}
+    <tfoot>
+    <tr>
+        <td align="center">{{item.serial_num}}</td>
+        <td>
+            {% if item.laser %}
+            <div class="wrap" style="margin-left: 0px;">
+                <div class="photo">
+                    <img src="{{item.laser.url}}" alt="" width="200" height="100">
+                </div>
+            </div>
+            {% endif %}
+        </td>
+        <td>
+            {% if item.passtopt %}
+            <div class="wrap" style="margin-left: 0px;">
+                <div class="photo">
+                    <img src="{{item.passtopt.url}}" alt="" width="180" height="90">
+                </div>
+            </div>
+            {% endif %}
+        </td>
+    </tr>
+    </tfoot>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'mainapp/table.html' %}
+{% block title %}Результаты анализа спектра{% endblock title %}
+{% block back %}
+<a href="{% url 'main' %}">
+    <button class="btn btn-outline-danger" type="submit" style="margin-left: 10px;"><i
+            class="fa fa-regular fa-arrow-left"></i> Главная таблица
+    </button>
+</a>
+{% endblock back %}
+
+{% block add %}
+<a href="{% url 'add_osa' %}">
+    <button type="button" class="btn btn-danger btn-sm" style="margin-left: 30px;width: 230px;margin-top: 5px;"><i
+            class="fa fa-solid fa-plus"></i> Добавить запись
+    </button>
+</a>
+{% endblock add%}
+
+{% block content %}
+<table class="table table-sm caption-top">
+    <caption>Результаты анализа спектра</caption>
+    <thead class="table-danger" align="center">
+    <tr>
+        <th scope="col">Серийный номер</th>
+        <th scope="col">Коэффициент усиления</th>
+        <th scope="col">Неравномерность усиления</th>
+        <th scope="col">Коэффициент шума</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page_obj %}
+    <tfoot>
+    <tr>
+        <td align="center">{{item.serial_num}}</td>
+        <td align="center">{{item.gain}}</td>
+        <td align="center">{{item.gain_flatness}}</td>
+        <td align="center">{{item.noise_figure}}</td>
+    </tr>
+    </tfoot>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mainapp/css/table.css' %}">
+
+    <title>Система управления производством</title>
+</head>
+<body>
+<div class="start">
+    {% include 'mainapp/inc/_navreg.html' %}
+    <div class="back">
+        <section role="main" style="color: #fff;">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-3" style="font-size: 90px;font-weight:bold;">Система управления производством
+                        эОУ</h1>
+                    <h1 style="color: #f24949;font-size: 20px;">
+                        Система позволяет эффективно осуществлять управление
+                        и контроль в сфере производства оптических усилителей.
+                    </h1>
+                    <br>
+                    <a class="btn btn-danger btn-lg" href="{% url 'register' %}" role="button">Пройти регистрацию</a>
+                </div>
+            </div>
+            <hr style="margin-top: 50px">
+            <div class="container" style="margin-top: 50px">
+                <div class="row">
+                    <div class="col-md-4" align="center">
+                        <h2 style="color: #f24949;">Заказчикам</h2>
+                        <br>
+                        <p>
+                            Заказчикам необходимо зарегестрироваться и получить права от администратора на доступ к
+                            ресурсам системы. Зарегистрированные пользователи, не
+                            обладающие правами администрирования, могут просматривать информцию по изделиям, оставлять
+                            заявки
+                            на производство усилителей, вести деловую переписку с отделом производства.
+
+                        </p>
+                    </div>
+                    <div class="col-md-4" align="center">
+                        <h2 style="color: #f24949;">Возможности системы</h2>
+                        <br>
+                        <p>Система управления производством оптических усилителей предоставляет возможность хранения
+                            и изменения данных по каждому производимому изделию. Хранимые данные включают в себя
+                            документацию, технические характеристики, результаты исследований. Также существует
+                            возможность
+                            деловой
+                            переписки со сторонними отделами (заказчиками).</p>
+                    </div>
+
+                    <div class="col-md-4" align="center">
+                        <h2 style="color: #f24949;">Персоналу</h2>
+                        <br>
+                        <p>Данная система предоставляет расширенные права управления инженерам, занимающихся
+                            производством
+                            оптических усилителей. Существует возможность изменения и добавления данных, прием заявок на
+                            производство. Администратор системы определяет права на доступ к ресурсам.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer"></footer>
+</div>
+</body>
+</html>

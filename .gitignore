@@ -1,0 +1,8 @@
+.env
+db.sqlite3
+
+/departmentsystem/__pycache__
+/mainapp/__pycache__
+
+/media
+

@@ -1,0 +1,64 @@
+{% extends 'mainapp/users.html' %}
+{% block title %}Пользователи{% endblock title %}
+
+{% block mid %}
+<h1>Используйте:</h1>
+            <ul>
+                <a href="{% url 'admin:index' %}">
+                    <li><i class="fa fa-regular fa-hammer"></i> Панель администратора</li>
+                </a>
+            </ul>
+{% endblock mid %}
+
+{% block search %}
+<form style="float:right" class="d-flex" action="" method="get">
+    <input class="form-control me-2" style="background: #f5f0f0; border: 1px solid #eb5959;" type="search" name="search"
+           placeholder="Поиск по фамилии...">
+    <input class="btn btn-outline-danger" type="submit" value="Поиск">
+</form>
+{% endblock %}
+{% block content %}
+
+<table class="table table-sm caption-top">
+    <caption>Пользователи</caption>
+    <thead class="table-danger" align="center">
+    <tr>
+        <th scope="col">Имя поьзователя</th>
+        <th scope="col">Электронный адрес</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Права</th>
+        <th scope="col">Доступ</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page_obj %}
+    <tfoot>
+    {% if item.is_active %}
+    <tr>
+        {% else %}
+    <tr style="background:#eb5959">
+        {%endif%}
+        <td align="center">{{item.username}}</td>
+        <td align="center">{{item.email}}</td>
+        <td align="center">{{item.first_name}}</td>
+        <td align="center">{{item.last_name}}</td>
+        {% if item.is_staff %}
+        <td align="center">Персонал</td>
+        {% else %}
+        <td align="center">Посетитель</td>
+        {%endif%}
+
+        {% if item.is_active %}
+        <td align="center"><i class="fa fa-duotone fa-lock-open"></i></td>
+        {% else %}
+        <td align="center"><i class="fa fa-duotone fa-lock"></i></td>
+        {%endif%}
+    </tr>
+
+    </tfoot>
+    {% endfor %}
+
+</table>
+
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% extends 'mainapp/users.html' %}
+
+{% block title %}Заявки на производство{% endblock title %}
+
+{% block mid %}
+<h1>Используйте:</h1>
+            <ul>
+                <a href="{% url 'admin:index' %}">
+                    <li><i class="fa fa-regular fa-hammer"></i> Панель администратора</li>
+                </a>
+            </ul>
+{% endblock mid %}
+
+{% block filter %}
+<form style="float:left" class="d-flex" action="" method="get">
+    <input class="btn btn-outline-danger" type="submit" name="check" value="Все заявки">
+</form>
+
+<form style="float:left; margin-left:10px" class="d-flex" action="" method="get">
+    <input class="btn btn-outline-danger" type="submit" name="uncheck" value="Невыполненные заявки">
+</form>
+{% endblock %}
+{% block search %}
+
+<form style="float:right" class="d-flex" action="" method="get">
+    <input class="form-control me-2" style="background: #f5f0f0; border: 1px solid #eb5959;" type="search"
+           name="search"
+           placeholder="Поиск по дате ...">
+    <input class="btn btn-outline-danger" type="submit" value="Поиск">
+</form>
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<h1 style="color: #000;">Список оставленных заявок</h1>
+<br>
+{% if not page_obj%}
+<b>Заявок нет...</b>
+{% else %}
+{% for item in page_obj %}
+<div class="card mb-3" style="background: #eb6969;">
+    <div class="card-header" style="background: #eb6969;">
+        <p>{{ item.explanations }}</p>
+    </div>
+    <div class="card-body mb-20" style="background: #f5f0f0;font-size: 16px; font-weight: bold;">
+        <p>Количество изделий: {{ item.count }} шт.</p>
+        <hr>
+        <p>Количество изделий модификации K25-M12: {{ item.count_m12 }} шт.</p>
+        <hr>
+        <p>Количество изделий модификации K25-M19: {{ item.count_n19 }} шт.</p>
+        <hr>
+        <p>Тип коннекторов: {{ item.con_type }}</p>
+        <hr>
+        <p>До какого числа необходимо сделать: {{ item.end_of_date }}</p>
+        <hr>
+        <p>Номер заказа: {{ item.order }}</p>
+    </div>
+    <div class="card-footer " style="background: #eb6969; font-weight: bold;">
+        {{ item.req_date }}
+    </div>
+</div>
+<hr style="background-color: #000; height: 5px">
+{% endfor %}
+{% endif%}
+
+{% endblock content %}

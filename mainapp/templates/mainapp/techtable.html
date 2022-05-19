@@ -1,0 +1,44 @@
+{% extends 'mainapp/table.html' %}
+{% block title %}Технические характеристики изделий{% endblock title %}
+{% block back %}
+<a href="{% url 'main' %}">
+    <button class="btn btn-outline-danger" type="submit" style="margin-left: 10px;"><i
+            class="fa fa-regular fa-arrow-left"></i> Главная таблица
+    </button>
+</a>
+{% endblock back %}
+{% block add %}
+    <a href="{% url 'add_tech' %}">
+    <button type="button" class="btn btn-danger btn-sm" style="margin-left: 30px;width: 230px;margin-top: 5px;"><i
+                class="fa fa-solid fa-plus"></i> Добавить запись
+        </button>
+        </a>
+{% endblock add%}
+{% block content %}
+<table class="table table-sm caption-top">
+    <caption>Технические характеристики изделий</caption>
+    <thead class="table-danger" align="center">
+    <tr>
+        <th scope="col">Серийный номер</th>
+        <th scope="col">Рабочий ток</th>
+        <th scope="col">Максимальный ток</th>
+        <th scope="col">Выходная мощность при рабочем токе</th>
+        <th scope="col">Выходная мощность при максимальном токе</th>
+        <th scope="col">Полное затухание</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page_obj %}
+    <tfoot>
+    <tr>
+        <td align="center">{{item.serial_num}}</td>
+        <td align="center">{{item.i_op}}</td>
+        <td align="center">{{item.i_eol}}</td>
+        <td align="center">{{item.p_op}}</td>
+        <td align="center">{{item.p_eol}}</td>
+        <td align="center">{{item.attenuation}}</td>
+    </tr>
+    </tfoot>
+    {% endfor %}
+</table>
+{% endblock content %}6

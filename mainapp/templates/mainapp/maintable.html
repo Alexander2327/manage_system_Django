@@ -1,0 +1,36 @@
+{% extends 'mainapp/table.html' %}
+{% block title %}Главная таблица{% endblock title %}
+{% block add %}
+<a href="{% url 'add_product' %}">
+    <button type="button" class="btn btn-danger btn-sm" style="margin-left: 30px;width: 230px;margin-top: 5px;"><i
+            class="fa fa-solid fa-plus"></i> Добавить запись
+    </button>
+</a>
+{% endblock add %}
+{% block content %}
+<table class="table table-sm caption-top">
+    <caption>Список изготовленных изделий</caption>
+    <thead class="table-danger" align="center">
+    <tr>
+        <th scope="col">Серийный номер</th>
+        <th scope="col">Модификация</th>
+        <th scope="col">Тип коннектора</th>
+        <th scope="col">Дата изготовления</th>
+        <th scope="col">Номер заказа</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page_obj %}
+    <tfoot>
+    <tr>
+        <td align="center">{{item.serial_num}}</td>
+        <td align="center">{{item.modification}}</td>
+        <td align="center">{{item.con_type}}</td>
+        <td align="center">{{item.create_date}}</td>
+        <td align="center">{{item.order}}</td>
+    </tr>
+    </tfoot>
+    {% endfor %}
+</table>
+{% endblock content %}
+
