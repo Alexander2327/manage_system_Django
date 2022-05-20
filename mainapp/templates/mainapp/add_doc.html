@@ -9,7 +9,7 @@
 {% endblock back %}
 {% block content %}
 <h1 style="color: #eb5959;">Добавление документов</h1><br>
-<form action="{% url 'add_doc' %}" method="post" style="font-size: 16px;font-weight: bold;">
+<form action="{% url 'add_doc' %}" method="post" enctype= "multipart/form-data" style="font-size: 16px;font-weight: bold;">
     {% csrf_token %}
 
     {{ form.as_p }}

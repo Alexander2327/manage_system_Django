@@ -29,20 +29,20 @@
     <tfoot>
     <tr>
         <td align="center">{{item.serial_num}}</td>
-        <td>
+        <td align="center">
             {% if item.laser %}
             <div class="wrap" style="margin-left: 0px;">
                 <div class="photo">
-                    <img src="{{item.laser.url}}" alt="" width="200" height="100">
+                    <img style="margin-left: 150px;" src="{{item.laser.url}}" alt="" width="200" height="100">
                 </div>
             </div>
             {% endif %}
         </td>
-        <td>
+        <td align="center">
             {% if item.passtopt %}
             <div class="wrap" style="margin-left: 0px;">
                 <div class="photo">
-                    <img src="{{item.passtopt.url}}" alt="" width="180" height="90">
+                    <img style="margin-left: 100px;" src="{{item.passtopt.url}}" alt="" width="180" height="90">
                 </div>
             </div>
             {% endif %}
