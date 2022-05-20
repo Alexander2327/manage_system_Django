@@ -175,3 +175,7 @@ transition:transform .7s;
 .table {
     border-bottom: 1px solid #000;
 }
+
+.tr:hover {
+    background-color: #eb5959;
+}
