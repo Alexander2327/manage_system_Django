@@ -128,7 +128,7 @@ class Documents(models.Model):
 class Request(models.Model):
     count = models.IntegerField(verbose_name='Количество изделий')
     count_m12 = models.IntegerField(verbose_name='Количество K25-M12')
-    count_n19 = models.IntegerField(verbose_name='Количество K25_M19')
+    count_n19 = models.IntegerField(verbose_name='Количество K25-M19')
     con_type = models.ForeignKey('Connectors', on_delete=models.PROTECT, verbose_name='Тип коннектора')
     req_date = models.DateField(verbose_name='Дата заявки')
     end_of_date = models.DateField(verbose_name='Дата окончания производства')
