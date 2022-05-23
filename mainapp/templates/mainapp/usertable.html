@@ -33,11 +33,11 @@
     </thead>
     <tbody>
     {% for item in page_obj %}
-    <tfoot>
+
     {% if item.is_active %}
-    <tr>
+    <tr class="tr">
         {% else %}
-    <tr style="background:#eb5959">
+    <tr class="tr" style="background:#eb5959">
         {%endif%}
         <td align="center">{{item.username}}</td>
         <td align="center">{{item.email}}</td>
@@ -56,7 +56,6 @@
         {%endif%}
     </tr>
 
-    </tfoot>
     {% endfor %}
 
 </table>

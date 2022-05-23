@@ -29,7 +29,7 @@
     </thead>
     <tbody>
     {% for item in page_obj %}
-    <tfoot>
+
     <tr class="tr">
         <td align="center">{{item.serial_num}}</td>
         <td align="center">{{item.i_op}}</td>
@@ -38,7 +38,7 @@
         <td align="center">{{item.p_eol}}</td>
         <td align="center">{{item.attenuation}}</td>
     </tr>
-    </tfoot>
+
     {% endfor %}
 </table>
 {% endblock content %}6

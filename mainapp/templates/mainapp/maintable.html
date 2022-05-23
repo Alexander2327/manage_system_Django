@@ -21,7 +21,7 @@
     </thead>
     <tbody>
     {% for item in page_obj %}
-    <tfoot>
+
     <tr class="tr">
         <td align="center">{{item.serial_num}}</td>
         <td align="center">{{item.modification}}</td>
@@ -29,7 +29,7 @@
         <td align="center">{{item.create_date}}</td>
         <td align="center">{{item.order}}</td>
     </tr>
-    </tfoot>
+
     {% endfor %}
 </table>
 {% endblock content %}
